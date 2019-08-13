@@ -1,9 +1,22 @@
 pipeline {
-	agent any
+	environment {
+	  //enables caching of maven repos between builds
+	  JAVA_TOOL_OPTIONS = '-Duser.home=/root'
+	}
+    agent {
+		docker {
+		    image 'ryerson/cfs-admin-jenkins-stage-runner'
+		    args '-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock'
+		   	registryUrl 'https://ai-registry.prodint.ryerson.ca'
+		    registryCredentialsId 'ai-registry-prod'
+		    alwaysPull	true
+		}
+    }
+
 	stages {
 		stage("Compile") {
 			steps {
-				sh "./mvnw compile"
+				sh "mvn clean compile"
 			}
 		}
 	}
