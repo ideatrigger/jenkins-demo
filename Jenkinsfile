@@ -28,7 +28,7 @@ pipeline {
 	
 	post {
 		always {
-          mail to: 'hongyan.song@ijvt.ryerson.ca','hongyan.song@ryerson.ca'
+          mail to: 'hongyan.song@ijvt.ryerson.ca,hongyan.song@ryerson.ca',
           subject: "Completed Pipeline: ${currentBuild.fullDisplayName}",
           body: "Your build completed, please check: ${env.BUILD_URL}"
      	}
