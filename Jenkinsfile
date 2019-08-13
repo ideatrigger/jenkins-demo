@@ -8,7 +8,6 @@ pipeline {
 		    image 'ryerson/cfs-admin-jenkins-stage-runner'
 		    args '-v /root/.m2:/root/.m2 -v /var/run/docker.sock:/var/run/docker.sock'
 		   	registryUrl 'https://ai-registry.prodint.ryerson.ca'
-		    registryCredentialsId 'ai-registry-prod'
 		    alwaysPull	true
 		}
     }
