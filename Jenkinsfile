@@ -12,7 +12,7 @@ pipeline {
 		}
     }
     
-	triggers { cron('* * * * *') }
+	//triggers { cron('* * * * *') }
 	
 	stages {
 		stage("Compile") {
