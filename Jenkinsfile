@@ -11,7 +11,9 @@ pipeline {
 		    alwaysPull	true
 		}
     }
-
+    
+	triggers { cron('* * * * *') }
+	
 	stages {
 		stage("Compile") {
 			steps {
